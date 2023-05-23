@@ -1,17 +1,17 @@
 # Write your code here.
-def badge_maker name
-    "Hello, my name is #{name}."
+def badge_maker speaker
+    "Hello, my name is #{speaker}."
 end
 
-def batch_badge_creator arry
-    arry.map {|name| badge_maker(name)}
+def batch_badge_creator speakers
+    speakers.map {|speaker| badge_maker(speaker)}
 end
 
-def assign_rooms arry
-    arry.map.with_index {|name, index| "Hello, #{name}! You'll be assigned to room #{index + 1}!"}
+def assign_rooms speakers
+    speakers.map.with_index(1) {|speaker, index| "Hello, #{speaker}! You'll be assigned to room #{index}!"}
 end
 
-def printer arry
-    arry.map {|name| puts badge_maker(name)}
-    arry.map.with_index {|name, index| puts "Hello, #{name}! You'll be assigned to room #{index + 1}!"}
+def printer speakers
+    batch_badge_creator(speakers).map {|badge| puts badge}
+    assign_rooms(speakers).map {|assignment| puts assignment}
 end
